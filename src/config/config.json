@@ -1,0 +1,10 @@
+{    
+    "destinationPath": "./logs",
+    "configPath": "./src/config/config.json",
+    "levels": [
+      { "value": 1, "name": "info", "color": "green", "duration":30 },
+      { "value": 2, "name": "WARNING", "color": "yellow","duration":30 },
+      { "value": 3, "name": "ERROR", "color": "red","duration":60 }
+    ],
+    "unknownLevel": { "value": 50, "name": "unknownLevel", "color": "red", "duration": 60 }
+  }
