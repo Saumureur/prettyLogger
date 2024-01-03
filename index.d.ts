@@ -1,2 +1,8 @@
-export { BasicLogger} from "./BasicLogger";
-export {prettyConfig, prettyLevel, prettyLogger, prettyMessage} from "./prettyLogger"
+// index.d.ts
+export { BasicLogger } from "./src/BasicLogger";
+export {
+  prettyConfig,
+  prettyLevel,
+  prettyLogger,
+  prettyMessage,
+} from "./src/prettyLogger";

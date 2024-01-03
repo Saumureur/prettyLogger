@@ -1,4 +1,13 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BasicLogger = void 0;
 var fs = require("fs");
@@ -44,16 +53,14 @@ var BasicLogger = /** @class */ (function () {
     BasicLogger.prototype.removeOldFiles = function () {
         var _this = this;
         var currentDate = new Date();
-        // Parcourir chaque niveau de log défini dans la configuration
-        this.config.levels.forEach(function (level) {
+        var levelsToCheck = __spreadArray(__spreadArray([], this.config.levels, true), [this.config.unknownLevel], false);
+        levelsToCheck.forEach(function (level) {
             console.log(level);
             var logFilePattern = new RegExp("\\d{4}-\\d{2}-\\d{2}_".concat(level.name, "\\.log"));
             // Lister tous les fichiers correspondant au pattern dans le répertoire de destination
             var files = fs.readdirSync(_this.config.destinationPath);
-            console.log(files);
             files.forEach(function (file) {
                 if (logFilePattern.test(file)) {
-                    console.log("yoyoyo");
                     // Extraire la date du nom du fichier
                     var fileDate = new Date(file.split('_')[0]);
                     console.log(file + " : " + file.split('_')[0]);
