@@ -1,6 +1,4 @@
-import { prettyConfig } from "./prettyLogger/prettyConfig";
-import { prettyLogger } from "./prettyLogger/prettyLogger";
-import { prettyMessage } from "./prettyLogger/prettyMessage";
+import { prettyConfig, prettyLogger, prettyMessage } from "./types";
 import * as fs from "fs";
 import * as path from 'path';
 
